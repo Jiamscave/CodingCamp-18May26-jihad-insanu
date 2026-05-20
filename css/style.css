@@ -271,3 +271,13 @@ button:hover {
     padding: 0;
     font-size: 16px;
 }
+
+/* ==========================================================================
+   PERBAIKAN SPOTIFY PLAYER (UKURAN KUSTOM)
+   ========================================================================== */
+.spotify-iframe {
+    display: block;
+    margin: 0 auto; /* Menjaga pemutar musik tetap di tengah kartu */
+    max-width: 100%; /* Mencegah widget terpotong jika dibuka di layar HP yang sempit */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Tambahan sedikit bayangan agar elegan */
+}
