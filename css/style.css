@@ -1,0 +1,273 @@
+/* ==========================================================================
+   1. VARIABEL WARNA & BACKGROUND TEKNOLOGI
+   ========================================================================== */
+:root {
+    --bg-body: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+    --grid-color: rgba(92, 107, 192, 0.05);
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --text-main: #2c3e50;
+    --text-muted: #7f8c8d;
+    --color-primary: #4a54e1;
+    --color-primary-hover: #373db5;
+    --color-danger: #ff5252;
+    --color-danger-hover: #d32f2f;
+    --border-color: #dcdde1;
+}
+
+[data-theme="dark"] {
+    --bg-body: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    --grid-color: rgba(0, 242, 254, 0.04);
+    --bg-card: rgba(15, 32, 39, 0.85);
+    --text-main: #e0e6ed;
+    --text-muted: #8898a8;
+    --color-primary: #00f2fe;
+    --color-primary-hover: #00c6ff;
+    --color-danger: #ff2e63;
+    --color-danger-hover: #e50914;
+    --border-color: #233549;
+}
+
+/* ==========================================================================
+   2. BASE STYLE & EFFECT WALLPAPER
+   ========================================================================== */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-body);
+    background-attachment: fixed;
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    transition: background 0.4s, color 0.3s;
+}
+
+.tech-grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 25px 25px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Tombol Pengubah Tema di dalam Kotak Atas */
+#theme-toggle {
+    margin-bottom: 15px;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* ==========================================================================
+   3. GREETING & CUSTOM NAME CSS
+   ========================================================================== */
+.greeting-section {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-color);
+}
+
+#time-display {
+    font-size: 3.5rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#date-display {
+    color: var(--text-muted);
+    margin: 5px 0 15px 0;
+    font-size: 1.1rem;
+}
+
+.greeting-container {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+#user-name-input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px dashed var(--color-primary);
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: 600;
+    width: 250px;
+    text-align: center;
+    padding: 0;
+    outline: none;
+}
+#user-name-input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+/* ==========================================================================
+   4. LAYOUT CARD & COMPONENT STYLE (BALANCE TIMING FIX)
+   ========================================================================== */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card h3 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 12px;
+    font-size: 1.3rem;
+    text-align: left;
+}
+
+/* INPUT DAN TOMBOL */
+input[type="text"], input[type="url"], input[type="number"], select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.02);
+    color: var(--text-main);
+    font-size: 1rem;
+}
+[data-theme="dark"] input, [data-theme="dark"] select {
+    background-color: rgba(255,255,255,0.05);
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+button:hover {
+    opacity: 0.9;
+}
+
+/* PERBAIKAN: Fokus Timer Menjadi Rapi Di Tengah (Centering Balance) */
+.focus-timer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+#timer-display {
+    font-size: 3.8rem;
+    text-align: center; /* Teks tepat di tengah boks */
+    margin: 15px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.timer-settings {
+    display: flex;
+    justify-content: center; /* Menyeimbangkan posisi input set menit di tengah */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.timer-settings input {
+    width: 80px;
+    margin-bottom: 0;
+    text-align: center;
+}
+.timer-controls {
+    display: flex;
+    justify-content: center; /* Menyeimbangkan tombol kendali di tengah */
+    gap: 12px;
+}
+
+/* Music Player Style */
+.music-status {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* To-Do List Group */
+.todo-input-group {
+    display: flex;
+    gap: 10px;
+}
+.todo-input-group input {
+    margin-bottom: 0;
+}
+
+#task-container {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+.task-item.checked span {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+.delete-btn { background-color: var(--color-danger); }
+
+/* Quick Links */
+#links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+.link-button-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+.link-button-wrapper a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding-right: 8px;
+}
+.remove-link-btn {
+    background: none;
+    color: rgba(255,255,255,0.7);
+    padding: 0;
+    font-size: 16px;
+}

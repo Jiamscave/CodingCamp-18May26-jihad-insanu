@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="tech-grid-overlay"></div>
+
+    <div class="greeting-section">
+        <button id="theme-toggle">🌙 Mode Gelap</button>
+
+        <h1 id="time-display">00:00:00</h1>
+        <p id="date-display">Tanggal</p>
+        <div class="greeting-container">
+            <span id="greeting-message">Good Morning</span>, 
+            <input type="text" id="user-name-input" placeholder="Ketik Nama Anda..." title="Klik untuk mengubah nama">
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        
+        <div class="card focus-timer">
+            <h3>Focus Timer</h3>
+            <h1 id="timer-display">25:00</h1>
+            
+            <div class="timer-settings">
+                <input type="number" id="timer-duration" min="1" max="120" value="25" title="Atur menit">
+                <button id="set-duration-btn">Set Menit</button>
+            </div>
+
+            <div class="timer-controls">
+                <button id="start-btn">Start</button>
+                <button id="stop-btn">Stop</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+        </div>
+
+        <div class="card todo-list">
+            <h3>Tasks</h3>
+            
+            <div class="todo-input-group">
+                <input type="text" id="task-input" placeholder="Add a new task...">
+                <button id="add-task-btn">Add</button>
+            </div>
+            
+            <button id="sort-tasks-btn" style="margin-top: 10px; width: 100%;">🗂️ Urutkan Tugas (A-Z)</button>
+            
+            <ul id="task-container">
+                </ul>
+        </div>
+
+        <div class="card quick-links">
+            <h3>Quick Links</h3>
+            <input type="text" id="link-name" placeholder="Link name">
+            <input type="url" id="link-url" placeholder="URL">
+            <button id="add-link-btn" style="width: 100%;">Add Link</button>
+            
+            <div id="links-container">
+                </div>
+        </div>
+
+        <div class="card music-player">
+            <h3>🎵 Music Player</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 15px;">Putar lagu favorit Anda untuk menemani waktu fokus:</p>
+            
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/1hrJXgaVEGovpLl9dFdqz7?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px; text-align: center;">
+                *Pastikan Anda sudah login ke Spotify di browser ini.
+            </p>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
